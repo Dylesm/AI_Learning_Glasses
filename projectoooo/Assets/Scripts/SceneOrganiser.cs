@@ -37,7 +37,7 @@ public class SceneOrganiser : MonoBehaviour
     /// Current threshold accepted for displaying the label
     /// Reduce this value to display the recognition more often
     /// </summary>
-    internal float probabilityThreshold = 0.8f;
+    internal float probabilityThreshold = 0.4   f;
 
     /// <summary>
     /// The quad object hosting the imposed image captured
@@ -125,6 +125,26 @@ public class SceneOrganiser : MonoBehaviour
 
                 // Set the tag text
                 lastLabelPlacedText.text = bestPrediction.tagName;
+                
+                    if (bestPrediction.tagName == "person"){
+                        lastLabelPlacedText.text = "persoon";
+                    }
+                if (bestPrediction.tagName == "table"){
+                        lastLabelPlacedText.text = "tafel";}
+                if (bestPrediction.tagName == "water bottle"){
+                        lastLabelPlacedText.text = "fles";}
+                if (bestPrediction.tagName == "apple"){
+                        lastLabelPlacedText.text = "appel";}
+                if (bestPrediction.tagName == "backpack"){
+                        lastLabelPlacedText.text = "rugzak";}
+                if (bestPrediction.tagName == "glasses"){
+                        lastLabelPlacedText.text = "brillen";}
+                if (bestPrediction.tagName == "headphones"){
+                        lastLabelPlacedText.text = "koptelefoon";}
+                if (bestPrediction.tagName == "pen"){
+                        lastLabelPlacedText.text = "potlood";}
+                if (bestPrediction.tagName == "phone"){
+                        lastLabelPlacedText.text = "telefoon";}
 
                 // Cast a ray from the user's head to the currently placed label, it should hit the object detected by the Service.
                 // At that point it will reposition the label where the ray HL sensor collides with the object,
