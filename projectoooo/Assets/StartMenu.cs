@@ -7,7 +7,7 @@ public class StartMenu : MonoBehaviour {
 
 	public void StartPassive()
     {
-        SceneManager.LoadScene("ObjDetectionScene");
+        SceneManager.LoadScene("SampleScene");
     }
 
 }
