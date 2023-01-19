@@ -27,7 +27,7 @@ public class CustomVisionAnalyser : MonoBehaviour
     /// <summary>
     /// Insert your prediction endpoint here
     /// </summary>
-    private string predictionEndpoint = "https://group9mod62023-prediction.cognitiveservices.azure.com/customvision/v3.0/Prediction/6807aca6-106d-4d7c-b60e-5b0b33efea7e/detect/iterations/mod6Group92023/image";
+    private string predictionEndpoint = "https://group9mod62023-prediction.cognitiveservices.azure.com/customvision/v3.0/Prediction/6807aca6-106d-4d7c-b60e-5b0b33efea7e/detect/iterations/Iteration4/image";
 
     /// <summary>
     /// Bite array of the image to submit for analysis
@@ -70,8 +70,13 @@ public class CustomVisionAnalyser : MonoBehaviour
             yield return unityWebRequest.SendWebRequest();
 
             string jsonResponse = unityWebRequest.downloadHandler.text;
+            JObject json = JObject.Parse(jsonResponse);
+            var predictions = json["predictions"];
+
 
             Debug.Log("response: " + jsonResponse);
+            Debug.Log("predictions: " + predictions);
+            
 
             // Create a texture. Texture size does not matter, since
             // LoadImage will replace with the incoming image size.
